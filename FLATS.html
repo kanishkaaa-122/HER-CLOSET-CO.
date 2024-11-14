@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Her Closet Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .product-card select {
+            margin: 10px 0;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <a href="cart.html" class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="container">
+    <!-- Product Cards -->
+    <div class="product-card">
+        <img src="flats1.jpg" alt="Stylish Flats - Product Title 1">
+        <h3>Layasa Women Flats</h3>
+        <p>₹499</p>
+        <label for="size1">Select Size:</label>
+        <select id="size1">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Layasa Women Flats', 499, 'path_to_image1.jpg', document.getElementById('size1').value)">Add to Cart</button>
+    </div>
+    
+    <div class="product-card">
+        <img src="flats2.jpg" alt="Stylish Flats - Product Title 2">
+        <h3>DressBerry Beige Textured Open Toe Flats</h3>
+        <p>₹599</p>
+        <label for="size2">Select Size:</label>
+        <select id="size2">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('DressBerry Beige Textured Open Toe Flats', 599, 'path_to_image2.jpg', document.getElementById('size2').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="flats3.jpg" alt="Stylish Flats - Product Title 3">
+        <h3>Vendoz Women Casual Platform Sandal Flats for Women</h3>
+        <p>₹699</p>
+        <label for="size3">Select Size:</label>
+        <select id="size3">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Vendoz Women Casual Platform Sandal Flats for Women', 699, 'path_to_image3.jpg', document.getElementById('size3').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="flats4.jpg" alt="Stylish Flats - Product Title 4">
+        <h3>streetstylestore Nude U Strap flats</h3>
+        <p>₹799</p>
+        <label for="size4">Select Size:</label>
+        <select id="size4">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('streetstylestore Nude U Strap flats', 799, 'path_to_image4.jpg', document.getElementById('size4').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="flats5.jpg" alt="Stylish Flats - Product Title 5">
+        <h3>Shoetopia Women Ruched Slip-On Flat Sandals For Women</h3>
+        <p>₹899</p>
+        <label for="size5">Select Size:</label>
+        <select id="size5">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Shoetopia Women Ruched Slip-On Flat Sandals For Women', 899, 'path_to_image5.jpg', document.getElementById('size5').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="flats6.jpg" alt="Stylish Flats - Product Title 6">
+        <h3>PANAHI Women Gold-Toned Ethnic T-Strap Flats</h3>
+        <p>₹899</p>
+        <label for="size6">Select Size:</label>
+        <select id="size6">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('PANAHI Women Gold-Toned Ethnic T-Strap Flats', 899, 'path_to_image6.jpg', document.getElementById('size5').value)">Add to Cart</button>
+    </div><div class="product-card">
+        <img src="flats7.jpg" alt="Stylish Flats - Product Title 7">
+        <h3>Shoetopia Women Slip-On Flat Sandals For Women</h3>
+        <p>₹899</p>
+        <label for="size7">Select Size:</label>
+        <select id="size7">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Shoetopia Women Slip-On Flat Sandals For Women', 899, 'path_to_image5.jpg', document.getElementById('size5').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="flats8.jpg" alt="Stylish Flats - Product Title 8">
+        <h3>Gerief Women Flats</h3>
+        <p>₹899</p>
+        <label for="size8">Select Size:</label>
+        <select id="size8">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Gerief Women Flats', 899, 'path_to_image5.jpg', document.getElementById('size5').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="flats9.jpg" alt="Stylish Flats - Product Title 5">
+        <h3>Realtoes Women Collection Of Regular Wear Flower Printed Trendy Flats For Women</h3>
+        <p>₹899</p>
+        <label for="size9">Select Size:</label>
+        <select id="size9">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Realtoes Women Collection Of Regular Wear Flower Printed Trendy Flats For Women', 899, 'path_to_image9.jpg', document.getElementById('size5').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="flats10.jpg" alt="Stylish Flats - Product Title 5">
+        <h3>Shoetopia Women Flats</h3>
+        <p>₹899</p>
+        <label for="size10">Select Size:</label>
+        <select id="size10">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Shoetopia Women Flats', 899, 'path_to_image5.jpg', document.getElementById('size5').value)">Add to Cart</button>
+    </div>
+
+
+    
+
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice, productImage, size) {
+        const existingProduct = cart.find(item => item.name === productName && item.size === size);
+        if (existingProduct) {
+            existingProduct.quantity += 1; 
+        } else {
+            const product = { name: productName, price: productPrice, image: productImage, size: size, quantity: 1 };
+            cart.push(product);
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} (Size: ${size}) has been added to your cart!`);
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+   
+    updateCartCount();
+</script>
+
+</body>
+</html>

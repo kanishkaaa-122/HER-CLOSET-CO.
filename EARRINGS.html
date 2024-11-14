@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Her Closet Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <a href="cart.html" class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="container">
+    
+    <div class="product-card">
+        <img src="earrings1.jpg" alt="Product 1">
+        <h3>The Pari Engraved Jhumka Earrings For Women</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('The Pari Engraved Jhumka Earrings For Women', 499, 'path_to_image1.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="earrings2.jpg" alt="Product 2">
+        <h3>Traditional Pearl Hanging Jhumka</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('Traditional Pearl Hanging Jhumka', 599, 'path_to_image2.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="earrings3.jpg" alt="Product 3">
+        <h3>SubhagAlankar Trendy Gorgeous jhumka for girls and women. Earring</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('SubhagAlankar Trendy Gorgeous jhumka for girls and women. Earring', 699, 'path_to_image3.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="earrings4.jpg" alt="Product 4">
+        <h3>The Pari Gold-Plated Beaded Jhumka Earrings For Women</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('The Pari Gold-Plated Beaded Jhumka Earrings For Women', 799, 'path_to_image4.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="earrings5.jpg" alt="Product 5">
+        <h3>Jewelestia Royal Ruby Jhumkas</h3>
+        <p>₹899</p>
+        <button onclick="addToCart('Jewelestia Royal Ruby Jhumkas', 899, 'path_to_image5.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="earrings6.jpg" alt="Product 6">
+        <h3>Sandhiya Artificial Jhumka Earring For Women Earrings </h3>
+        <p>₹399</p>
+        <button onclick="addToCart('Sandhiya Artificial Jhumka Earring For Women Earrings', 399, 'path_to_image6.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="earrings7.jpg" alt="Product 7">
+        <h3>NAVNEETHA JUMKAS</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('NAVNEETHA JUMKAS', 499, 'path_to_image7.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="earrings8.jpg" alt="Product 8">
+        <h3>Kemp Jumka | Stone Earring/ Kemp Jumkha/ Stone Jewellery for Women</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('Kemp Jumka | Stone Earring/ Kemp Jumkha/ Stone Jewellery for Women', 599, 'path_to_image8.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="earrings9.jpg" alt="Product 9">
+        <h3>Ethnic Styles Inspired Earrings The Design Suggests A Mix of Tribal and Kundan</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('Ethnic Styles Inspired Earrings The Design Suggests A Mix of Tribal and Kundan', 699, 'path_to_image9.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="earrings10.jpg" alt="Product 10">
+        <h3>Stunning Two Tone Jhumka Earrings: Festive & Party Wear</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('Stunning Two Tone Jhumka Earrings: Festive & Party Wear', 799, 'path_to_image10.jpg')">Add to Cart</button>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice, productImage) {
+        const product = { name: productName, price: productPrice, image: productImage, quantity: 1 };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} has been added to your cart!`);
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+    updateCartCount();
+</script>
+
+</body>
+</html>
