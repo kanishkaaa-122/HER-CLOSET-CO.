@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Her Closet Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <a href="cart.html" class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="container">
+    
+    <div class="product-card">
+        <img src="make1.jpg" alt="Product 1">
+        <h3>Rare Beauty Soft Pinch Liquid Blush</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('Rare Beauty Soft Pinch Liquid Blush', 499, 'path_to_image1.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="make2.jpg" alt="Product 2">
+        <h3>Insight Cosmetics 3 in 1 Primer for Face Makeup</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('Insight Cosmetics 3 in 1 Primer for Face Makeup', 599, 'path_to_image2.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="make3.jpg" alt="Product 3">
+        <h3>MARS Back To Basics Eyeshadow Palette - 02 Shade (14.4g)</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('MARS Back To Basics Eyeshadow Palette - 02 Shade (14.4g)', 699, 'path_to_image3.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="make4.jpg" alt="Product 4">
+        <h3>Maybelline New York Lasting Drama Gel Eyeliner - Black</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('Maybelline New York Lasting Drama Gel Eyeliner - Black', 799, 'path_to_image4.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="make5.jpg" alt="Product 5">
+        <h3>My Closet Co. Makup Brush Set(Set of 12)</h3>
+        <p>₹899</p>
+        <button onclick="addToCart('My Closet Co. Makup Brush Set(Set of 12)', 899, 'path_to_image5.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="make6.jpg" alt="Product 6">
+        <h3>CC Cream</h3>
+        <p>₹399</p>
+        <button onclick="addToCart('CC Cream', 399, 'path_to_image6.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="make7.jpg" alt="Product 7">
+        <h3>Ulta Beauty Compact</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('Ulta Beauty Compact', 499, 'path_to_image7.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="make8.jpg" alt="Product 8">
+        <h3>Set Of 3 Highlighter Sticks</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('Set Of 3 Highlighter Sticks', 599, 'path_to_image8.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="make9.jpg" alt="Product 9">
+        <h3>Eyeshadow & Blush Palette</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('Product Title 9', 699, 'path_to_image9.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="make10.jpg" alt="Product 10">
+        <h3>Sugar Makeup SEt</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('Sugar Makeup Set', 799, 'path_to_image10.jpg')">Add to Cart</button>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice, productImage) {
+        const product = { name: productName, price: productPrice, image: productImage, quantity: 1 };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} has been added to your cart!`);
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+   
+    updateCartCount();
+</script>
+
+</body>
+</html>

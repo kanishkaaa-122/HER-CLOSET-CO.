@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Her Closet Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .product-card select {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <a href="cart.html" class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="container">
+   
+    <div class="product-card">
+        <img src="shoe1.jpg" alt="Product 1">
+        <h3>HRX by Hrithik Roshan Women White Mesh Running Non-Marking Shoes</h3>
+        <p>₹499</p>
+        <label for="size1">Select Size:</label>
+        <select id="size1">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('HRX by Hrithik Roshan Women White Mesh Running Non-Marking Shoes', 499, 'shoe1.jpg', document.getElementById('size1').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shoe2.jpg" alt="Product 2">
+        <h3>ADORLY Women Panelled Lace-Up Shoes For Women</h3>
+        <p>₹599</p>
+        <label for="size2">Select Size:</label>
+        <select id="size2">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('ADORLY Women Panelled Lace-Up Shoes For Women', 599, 'shoe2.jpg', document.getElementById('size2').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shoe3.jpg" alt="Product 3">
+        <h3>Theater Women Textured Lace-Ups Sneakers</h3>
+        <p>₹699</p>
+        <label for="size3">Select Size:</label>
+        <select id="size3">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Theater Women Textured Lace-Ups Sneakers', 699, 'shoe3.jpg', document.getElementById('size3').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shoe4.jpg" alt="Product 4">
+        <h3>Shoetopia Women Sneakers</h3>
+        <p>₹799</p>
+        <label for="size4">Select Size:</label>
+        <select id="size4">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Shoetopia Women Sneakers', 799, 'shoe4.jpg', document.getElementById('size4').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shoe5.jpg" alt="Product 5">
+        <h3>Vendoz Stylish Trending Sneakers For Women</h3>
+        <p>₹899</p>
+        <label for="size5">Select Size:</label>
+        <select id="size5">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Vendoz Stylish Trending Sneakers For Women', 899, 'shoe5.jpg', document.getElementById('size5').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shoe6.jpg" alt="Product 6">
+        <h3>Yoho Women Chunky Sneakers</h3>
+        <p>₹399</p>
+        <label for="size6">Select Size:</label>
+        <select id="size6">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Yoho Women Chunky Sneakers', 399, 'shoe6.jpg', document.getElementById('size6').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shoe7.jpg" alt="Product 7">
+        <h3>Denill Women White Walking Shoes</h3>
+        <p>₹499</p>
+        <label for="size7">Select Size:</label>
+        <select id="size7">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Denill Women White Walking Shoes (7) by Myntra', 499, 'shoe7.jpg', document.getElementById('size7').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shoe8.jpg" alt="Product 8">
+        <h3>Vendoz Comfort Plus Sneakers For Women</h3>
+        <p>₹599</p>
+        <label for="size8">Select Size:</label>
+        <select id="size8">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Vendoz Comfort Plus Sneakers For Women', 599, 'shoe8.jpg', document.getElementById('size8').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shoe9.jpg" alt="Product 9">
+        <h3>The Roadster Lifestyle Co. Women White Colourblocked Round Toe Sneakers</h3>
+        <p>₹699</p>
+        <label for="size9">Select Size:</label>
+        <select id="size9">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('The Roadster Lifestyle Co. Women White Colourblocked Round Toe Sneakers', 699, 'shoe9.jpg', document.getElementById('size9').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shoe10.jpg" alt="Product 10">
+        <h3>Roadster Colourblocked Premium Sneakers For Women</h3>
+        <p>₹799</p>
+        <label for="size10">Select Size:</label>
+        <select id="size10">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Roadster Colourblocked Premium Sneakers For Women', 799, 'shoe10.jpg', document.getElementById('size10').value)">Add to Cart</button>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice, productImage, productSize) {
+        const product = { name: productName, price: productPrice, image: productImage, size: productSize, quantity: 1 };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} (Size: ${productSize}) has been added to your cart!`);
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+    
+    updateCartCount();
+</script>
+
+</body>
+</html>
