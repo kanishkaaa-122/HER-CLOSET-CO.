@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Her Closet Co.</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        .header-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+        }
+        .cart-icon {
+            margin-left: 20px; /* Space between Style Swap and Cart */
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        .style-swap {
+            background-color: #f0f8ff; /* Light highlight color */
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            color: #007bff; /* Link color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .style-swap:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <nav>
+        <a href="CLOTHING.html">Clothing</a>
+        <a href="FOOTWEAR.html">Footwear</a>
+        <a href="HANDBAGS.html">Handbag</a>
+        <a href="JEWELLERY&ACCESSORIES.html">Jewellery & Accessories</a>
+        <a href="BEAUTY&WELLNESS.html">Beauty & Wellness</a>
+        <a href="CONTACT.html">Contact Us</a>
+    </nav>
+    <div class="header-actions">
+        <a href="styleswap.html" class="style-swap">Style Swap Platform</a>
+        <a href="cart.html" class="cart-icon">
+            🛒
+            <span class="cart-count" id="cart-count">0</span>
+        </a>
+    </div>
+</header>
+
+<main class="container">
+    <div class="product-card">
+        <img src="download.jpg" alt="Product 1">
+        <h3>Fabflee Women Georgette Printed A-line Dress</h3>
+        <p>₹499</p>
+        <label for="size-select-10"></label>
+        <select id="size-select-10">
+            <option value="">Select size</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+        </select>
+        <button onclick="addToCart('Fabflee Women Georgette Printed A-line Dress', 499)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shopping.webp" alt="Product 2">
+        <h3>Shoetopia Women White Woven Design Sandals</h3>
+        <p>₹599</p>
+        <label for="size9"></label>
+        <select id="size9">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Shoetopia Women White Woven Design Sandals (38)', 599)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="shopping (1).webp" alt="Product 3">
+        <h3>Hand Bags Tote Bag for Women</h3>
+        <p>₹2499</p>
+        <button onclick="addToCart('Hand Bags Tote Bag for Women', 2499)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="images (1).jpg" alt="Product 4">
+        <h3>Stylish Western Earrings for Women</h3>
+        <p>₹324</p>
+        <button onclick="addToCart('Stylish Western Earrings for Women', 324)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="images.jpg" alt="Product 5">
+        <h3>Bare Method Perfecting 4 Step Skincare Kit</h3>
+        <p>₹2900</p>
+        <button onclick="addToCart('Bare Method Perfecting 4 Step Skincare Kit', 2900)">Add to Cart</button>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice) {
+        const product = { name: productName, price: productPrice };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} has been added to your cart!`);
+        console.log(cart); 
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+    
+    updateCartCount();
+</script>
+
+</body>
+</html>

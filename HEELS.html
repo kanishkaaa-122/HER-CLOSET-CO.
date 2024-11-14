@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Her Closet Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .product-card select {
+            margin: 10px 0;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <a href="cart.html" class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="container">
+
+    <div class="product-card">
+        <img src="heels1.jpg" alt="Stylish Heels - Product Title 1">
+        <h3>Klaur Melbourne Women Heels</h3>
+        <p>₹499</p>
+        <label for="size1">Select Size:</label>
+        <select id="size1">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Klaur Melbourne Women Heels', 499, 'heels1.jpg', document.getElementById('size1').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="heels2.jpg" alt="Stylish Heels - Product Title 2">
+        <h3>Shoetopia Suede Pumps with Ankle Straps For Women</h3>
+        <p>₹599</p>
+        <label for="size2">Select Size:</label>
+        <select id="size2">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Shoetopia Suede Pumps with Ankle Straps For Women', 599, 'heels2.jpg', document.getElementById('size2').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="heels3.jpg" alt="Stylish Heels - Product Title 3">
+        <h3>Glados Women Heels</h3>
+        <p>₹699</p>
+        <label for="size3">Select Size:</label>
+        <select id="size3">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Glados Women Heels', 699, 'heels3.jpg', document.getElementById('size3').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="heels4.jpg" alt="Stylish Heels - Product Title 4">
+        <h3>Shoetopia Women Heels</h3>
+        <p>₹799</p>
+        <label for="size4">Select Size:</label>
+        <select id="size4">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Shoetopia Women Heels', 799, 'heels4.jpg', document.getElementById('size4').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="heels5.jpg" alt="Stylish Heels - Product Title 5">
+        <h3>MFT Couture Strappy Chunky Heels For Women</h3>
+        <p>₹899</p>
+        <label for="size5">Select Size:</label>
+        <select id="size5">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('MFT Couture Strappy Chunky Heels For Women', 899, 'heels5.jpg', document.getElementById('size5').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="heels6.jpg" alt="Stylish Heels - Product Title 6">
+        <h3>Denill Women Heels</h3>
+        <p>₹399</p>
+        <label for="size6">Select Size:</label>
+        <select id="size6">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Product Title 6', 399, 'heels6.jpg', document.getElementById('size6').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="heels7.jpg" alt="Stylish Heels - Product Title 7">
+        <h3>White Fashion Women Heels</h3>
+        <p>₹499</p>
+        <label for="size7">Select Size:</label>
+        <select id="size7">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('White Fashion Women Heels', 499, 'heels7.jpg', document.getElementById('size7').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="heels8.jpg" alt="Stylish Heels - Product Title 8">
+        <h3>ELLE Women Lavender Printed Stiletto Pumps</h3>
+        <p>₹599</p>
+        <label for="size8">Select Size:</label>
+        <select id="size8">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('ELLE Women Lavender Printed Stiletto Pumps', 599, 'heels8.jpg', document.getElementById('size8').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="heels9.jpg" alt="Stylish Heels - Product Title 9">
+        <h3>Shoetopia Women White Solid Heels</h3>
+        <p>₹699</p>
+        <label for="size9">Select Size:</label>
+        <select id="size9">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Shoetopia Women White Solid Heels ', 699, 'heels9.jpg', document.getElementById('size9').value)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="heels10.jpg" alt="Stylish Heels - Product Title 10">
+        <h3>Shoetopia Women Flatform Heels </h3>
+        <p>₹799</p>
+        <label for="size10">Select Size:</label>
+        <select id="size10">
+            <option value="">Select size</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="addToCart('Shoetopia Women Flatform Heels ', 799, 'heels10.jpg', document.getElementById('size10').value)">Add to Cart</button>
+    </div>
+    
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice, productImage, productSize) {
+        const product = { name: productName, price: productPrice, image: productImage, size: productSize, quantity: 1 };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} (Size: ${productSize}) has been added to your cart!`);
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+   
+    updateCartCount();
+</script>
+
+</body>
+</html>

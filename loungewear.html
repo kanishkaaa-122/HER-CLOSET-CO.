@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Her Closet Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <a href="cart.html" class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="container">
+   
+    <div class="product-card">
+        <img src="lw1.jpg" alt="Product 1">
+        <h3>Beelee Typs Women Printed Nightwear Set For Women</h3>
+        <p>₹499</p>
+        <label for="size-select-1">Select Size:</label>
+        <select id="size-select-1">
+            <option value="">Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart('Beelee Typs Women Printed Nightwear Set For Women', 499, 'lw1.jpg', document.getElementById('size-select-1').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="lw2.jpg" alt="Product 2">
+        <h3>LIBAS Women Printed Loungewear Set</h3>
+        <p>₹599</p>
+        <label for="size-select-2">Select Size:</label>
+        <select id="size-select-2">
+            <option value="">Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart('LIBAS Women Printed Loungewear Set', 599, 'lw2.jpg', document.getElementById('size-select-2').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="lw3.jpg" alt="Product 3">
+        <h3>Marks & Spencer Women Printed Lounge Joggers</h3>
+        <p>₹699</p>
+        <label for="size-select-3">Select Size:</label>
+        <select id="size-select-3">
+            <option value="">Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart('Marks & Spencer Women Printed Lounge Joggers', 699, 'lw3.jpg', document.getElementById('size-select-3').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="lw4.jpg" alt="Product 4">
+        <h3>SANSKRUTIHOMES Women Printed Cotton Night suit</h3>
+        <p>₹799</p>
+        <label for="size-select-4">Select Size:</label>
+        <select id="size-select-4">
+            <option value="">Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart('SANSKRUTIHOMES Women Printed Cotton Night suit', 799, 'lw4.jpg', document.getElementById('size-select-4').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="lw5.jpg" alt="Product 5">
+        <h3>GRECIILOOKS Co Ord Set for Women | Co Ord Set for Women Stylish</h3>
+        <p>₹899</p>
+        <label for="size-select-5">Select Size:</label>
+        <select id="size-select-5">
+            <option value="">Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart('GRECIILOOKS Co Ord Set for Women | Co Ord Set for Women Stylish', 899, 'lw5.jpg', document.getElementById('size-select-5').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="lw6.jpg" alt="Product 6">
+        <h3>PLibas Geometric Printed Pure Cotton Tie Up Night Suit</h3>
+        <p>₹399</p>
+        <label for="size-select-6">Select Size:</label>
+        <select id="size-select-6">
+            <option value="">Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart('Libas Geometric Printed Pure Cotton Tie Up Night Suit', 399, 'lw6.jpg', document.getElementById('size-select-6').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="lw7.jpg" alt="Product 7">
+        <h3>LIBAS Women Printed Lounge Wear</h3>
+        <p>₹499</p>
+        <label for="size-select-7">Select Size:</label>
+        <select id="size-select-7">
+            <option value="">Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart('LIBAS Women Printed Lounge Wear', 499, 'lw7.jpg', document.getElementById('size-select-7').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="lw8.jpg" alt="Product 8">
+        <h3>Lugo Women Printed Pink Night Suit Set</h3>
+        <p>₹599</p>
+        <label for="size-select-8">Select Size:</label>
+        <select id="size-select-8">
+            <option value="">Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart('Lugo Women Printed Pink Night Suit Set', 599, 'lw8.jpg', document.getElementById('size-select-8').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="lw9.jpg" alt="Product 9">
+        <h3>Libas Women Shorts Pair of 2</h3>
+        <p>₹699</p>
+        <label for="size-select-9">Select Size:</label>
+        <select id="size-select-9">
+            <option value="">Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart('Libas Women Shorts Pair of 2', 699, 'lw9.jpg', document.getElementById('size-select-9').value)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="lw10.jpg" alt="Product 10">
+        <h3>SANSKRUTIHOMES Women Printed Night suit</h3>
+        <p>₹799</p>
+        <label for="size-select-10">Select Size:</label>
+        <select id="size-select-10">
+            <option value="">Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart('SANSKRUTIHOMES Women Printed Night suit', 799, 'lw10.jpg', document.getElementById('size-select-10').value)">Add to Cart</button>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice, productImage, selectedSize) {
+        const product = { 
+            name: productName, 
+            price: productPrice, 
+            image: productImage, 
+            size: selectedSize, 
+            quantity: 1 
+        };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} (Size: ${selectedSize}) has been added to your cart!`);
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+   
+    updateCartCount();
+</script>
+
+</body>
+</html>

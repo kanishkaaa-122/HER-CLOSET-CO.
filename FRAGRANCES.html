@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Her Closet Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <a href="cart.html" class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="container">
+    <!-- 20 Product Cards -->
+    <div class="product-card">
+        <img src="f1.jpg" alt="Product 1">
+        <h3>CHANEL COCO MADEMOISELLE Eau De Parfum Spray 100 ml - Women - Perfume</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('Product Title 1', 499, 'path_to_image1.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="f2.jpg" alt="Product 2">
+        <h3>Secret Temptation Dream Eau De Perfume For Women, 50ml</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('Product Title 2', 599, 'path_to_image2.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="f3.jpg" alt="Product 3">
+        <h3>Vanesa Scarlet Long Lasting Eau De Parfum - 50 Ml</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('Product Title 3', 699, 'path_to_image3.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="f4.jpg" alt="Product 4">
+        <h3>RENEE Floral Fest Eau De Parfum</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('Product Title 4', 799, 'path_to_image4.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="f5.jpg" alt="Product 5">
+        <h3>Bella Vita Luxury collection gift Set(Fragrance Kit)</h3>
+        <p>₹899</p>
+        <button onclick="addToCart('Product Title 5', 899, 'path_to_image5.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="f6.jpg" alt="Product 6">
+        <h3>Plum BodyLovin' Hawaiian Rumba Eau De Parfum 15 ml</h3>
+        <p>₹399</p>
+        <button onclick="addToCart('Product Title 6', 399, 'path_to_image6.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="f7.jpg" alt="Product 7">
+        <h3>Luxury Perfume</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('Product Title 7', 499, 'path_to_image7.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="f8.jpg" alt="Product 8">
+        <h3>Armani Si Eau de Parfum 30ml Gift Set</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('Product Title 8', 599, 'path_to_image8.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="f9.jpg" alt="Product 9">
+        <h3>Calvin Klein Euphoria For Women Eau De Parfum</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('Product Title 9', 699, 'path_to_image9.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="f10.jpg" alt="Product 10">
+        <h3>The Woman Company Gutsy Eau De Parfum for Women - 20 ml</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('The Woman Company Gutsy Eau De Parfum for Women - 20 ml', 799, 'path_to_image10.jpg')">Add to Cart</button>
+    </div>
+    
+    
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice, productImage) {
+        const product = { name: productName, price: productPrice, image: productImage, quantity: 1 };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} has been added to your cart!`);
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+
+    updateCartCount();
+</script>
+
+</body>
+</html>
