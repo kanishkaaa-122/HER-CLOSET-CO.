@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Her Closet Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <a href="cart.html" class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="container">
+   
+    <div class="product-card">
+        <img src="ank1.jpg" alt="Product 1">
+        <h3>VIRAASI Set Of 2 Gold-Plated Stone-Studded Anklets</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('VIRAASI Set Of 2 Gold-Plated Stone-Studded Anklets', 499, 'path_to_image1.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="ank2.jpg" alt="Product 2">
+        <h3>Buy Two Layered Solid Cable Anklet online</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('Buy Two Layered Solid Cable Anklet online', 599, 'path_to_image2.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="ank3.jpg" alt="Product 3">
+        <h3>VIRAASI Set Of 2 Gold-Plated Stone Studded Anklets</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('VIRAASI Set Of 2 Gold-Plated Stone Studded Anklets', 699, 'path_to_image3.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="ank4.jpg" alt="Product 4">
+        <h3>Anant Fashion Anklet109 Alloy Anklet</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('Anant Fashion Anklet109 Alloy Anklet', 799, 'path_to_image4.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="ank5.jpg" alt="Product 5">
+        <h3>Zavya 925 Sterling Silver Anklet </h3>
+        <p>₹899</p>
+        <button onclick="addToCart('Zavya 925 Sterling Silver Anklet', 899, 'path_to_image5.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="ank6.jpeg" alt="Product 6">
+        <h3>KAI JEWEL womens Anklet </h3>
+        <p>₹399</p>
+        <button onclick="addToCart('KAI JEWEL womens Anklet', 399, 'path_to_image6.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="ank7.jpg" alt="Product 7">
+        <h3>Rubans 22KT Gold-Plated Anklet </h3>
+        <p>₹499</p>
+        <button onclick="addToCart('Rubans 22KT Gold-Plated Anklet', 499, 'path_to_image7.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="ank8.jpg" alt="Product 8">
+        <h3>Zavya 925 Pure Silver Rose Gold-Plated Anklet</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('Zavya 925 Pure Silver Rose Gold-Plated Anklet', 599, 'path_to_image8.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="ank9.jpg" alt="Product 9">
+        <h3>Shining Diva Silver-Plated Anklets For Women</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('Shining Diva Silver-Plated Anklets For Women', 699, 'path_to_image9.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="ank10.jpg" alt="Product 10">
+        <h3>Women Women Set of 2 Gold Plated Stone & Pearl Studded Anklet</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('Women Women Set of 2 Gold Plated Stone & Pearl Studded Anklet', 699, 'ank10')">Add to Cart</button>
+    </div>
+
+
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice, productImage) {
+        const product = { name: productName, price: productPrice, image: productImage, quantity: 1 };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} has been added to your cart!`);
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+    
+    updateCartCount();
+</script>
+
+</body>
+</html>

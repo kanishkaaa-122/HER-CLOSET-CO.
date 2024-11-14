@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Her Closet Co.</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        .container {
+            padding: 20px;
+        }
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-item h4 {
+            margin: 0;
+        }
+        .cart-item button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            margin: 0 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .checkout-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Your Cart</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="CLOTHING.html">Clothing</a>
+        <a href="FOOTWEAR.html">Footwear</a>
+        <a href="HANDABGS.html">Handbag</a>
+        <a href="JEWELLERY&ACCESSORIES.html">Jewellery & Accessories</a>
+        <a href="BEAUTY&WELLNESS.html">Beauty & Wellness</a>
+        <a href="CONTACT.html">Contact Us</a>
+    </nav>
+</header>
+
+<main class="container" id="cart-container">
+    <p>Your cart is empty!</p>
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.getElementById('cart-container');
+
+    function displayCart() {
+        if (cart.length === 0) {
+            cartContainer.innerHTML = '<p>Your cart is empty!</p>';
+        } else {
+            cartContainer.innerHTML = '';
+            let totalPrice = 0;
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                    <h4>${item.name} - ₹${item.price.toFixed(2)} (x${item.quantity})</h4>
+                    <input type="number" class="quantity-input" value="${item.quantity}" min="1" onchange="updateQuantity('${item.name}', this.value)">
+                    <button onclick="removeFromCart('${item.name}')">Remove</button>
+                `;
+                cartContainer.appendChild(itemDiv);
+                totalPrice += item.price * item.quantity; 
+            });
+
+            const totalDiv = document.createElement('div');
+            totalDiv.innerHTML = `<h4>Total Price: ₹${totalPrice.toFixed(2)}</h4>`;
+            cartContainer.appendChild(totalDiv);
+
+            
+            const checkoutButtonContainer = document.createElement('a');
+            checkoutButtonContainer.href = "checkout.html";
+            checkoutButtonContainer.style.textDecoration = 'none'; 
+            const checkoutButton = document.createElement('button');
+            checkoutButton.innerText = "Proceed to Checkout";
+            checkoutButton.className = "checkout-button"; 
+            checkoutButtonContainer.appendChild(checkoutButton);
+            cartContainer.appendChild(checkoutButtonContainer);
+        }
+    }
+
+    function removeFromCart(productName) {
+        const updatedCart = cart.filter(item => item.name !== productName);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        displayCart(); 
+    }
+
+    function updateQuantity(productName, quantity) {
+        const item = cart.find(item => item.name === productName);
+        if (item) {
+            item.quantity = parseInt(quantity, 10);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart(); 
+        }
+    }
+
+
+    displayCart();
+</script>
+
+</body>
+</html>

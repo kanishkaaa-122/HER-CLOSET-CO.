@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Her Closet Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .size-select {
+            margin: 10px 0;
+        }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <a href="cart.html" class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="container">
+    
+    <div class="product-card" role="article">
+        <img src="bot1.jpg" alt="White cargo trousers for women">
+        <h3>Tabadtod Regular Fit Women White Cargo</h3>
+        <p>₹499</p>
+        <label for="size-select-1">Select Size:</label>
+        <select id="size-select-1" class="size-select">
+            <option value="">Select size</option>
+            <option value="26">26</option>
+            <option value="28">28</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+            <option value="34">34</option>
+            <option value="36">36</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+        </select>
+        <button aria-label="Add Tabadtod Regular Fit Women White Cargo to cart" onclick="addToCart('Tabadtod Regular Fit Women White Cargo', 499, 'bot1.jpg', 'size-select-1')">Add to Cart</button>
+    </div>
+    <div class="product-card" role="article">
+        <img src="bot2.jpg" alt="Grey cargo trousers for women">
+        <h3>My Closet Co. Regular Fit Women Grey Cargo</h3>
+        <p>₹599</p>
+        <label for="size-select-2">Select Size:</label>
+        <select id="size-select-2" class="size-select">
+            <option value="">Select size</option>
+            <option value="26">26</option>
+            <option value="28">28</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+            <option value="34">34</option>
+            <option value="36">36</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+        </select>
+        <button aria-label="Add My Closet Co. Regular Fit Women Grey Cargo to cart" onclick="addToCart('My Closet Co. Regular Fit Women Grey Cargo', 599, 'bot2.jpg', 'size-select-2')">Add to Cart</button>
+    </div>
+    <div class="product-card" role="article">
+        <img src="bot3.jpg" alt="Black trousers for women">
+        <h3>Bluelock Regular Fit Women Black Trousers</h3>
+        <p>₹699</p>
+        <label for="size-select-3">Select Size:</label>
+        <select id="size-select-3" class="size-select">
+            <option value="">Select size</option>
+            <option value="26">26</option>
+            <option value="28">28</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+            <option value="34">34</option>
+            <option value="36">36</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+        </select>
+        <button aria-label="Add Bluelock Regular Fit Women Black Trousers to cart" onclick="addToCart('Bluelock Regular Fit Women Black Trousers', 699, 'bot3.jpg', 'size-select-3')">Add to Cart</button>
+    </div>
+    <div class="product-card" role="article">
+        <img src="bot4.jpg" alt="High-rise cargos trousers for women">
+        <h3>IVOC Women Straight Fit High-Rise Cargos Trousers</h3>
+        <p>₹799</p>
+        <label for="size-select-4">Select Size:</label>
+        <select id="size-select-4" class="size-select">
+            <option value="">Select size</option>
+            <option value="26">26</option>
+            <option value="28">28</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+            <option value="34">34</option>
+            <option value="36">36</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+        </select>
+        <button aria-label="Add IVOC Women Straight Fit High-Rise Cargos Trousers to cart" onclick="addToCart('IVOC Women Straight Fit High-Rise Cargos Trousers', 799, 'bot4.jpg', 'size-select-4')">Add to Cart</button>
+    </div>
+    <div class="product-card" role="article">
+        <img src="bot5.jpg" alt="White cargo trousers for women">
+        <h3>Kotty Regular Fit Women White Cargo</h3>
+        <p>₹899</p>
+        <label for="size-select-5">Select Size:</label>
+        <select id="size-select-5" class="size-select">
+            <option value="">Select size</option>
+            <option value="26">26</option>
+            <option value="28">28</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+            <option value="34">34</option>
+            <option value="36">36</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+        </select>
+        <button aria-label="Add Kotty Regular Fit Women White Cargo to cart" onclick="addToCart('Kotty Regular Fit Women White Cargo', 899, 'bot5.jpg', 'size-select-5')">Add to Cart</button>
+    </div>
+    <div class="product-card" role="article">
+        <img src="bot6.jpg" alt="White cargo trousers for women">
+        <h3>Kotty Regular Fit Women White Cargo</h3>
+        <p>₹899</p>
+        <label for="size-select-5">Select Size:</label>
+        <select id="size-select-5" class="size-select">
+            <option value="">Select size</option>
+            <option value="26">26</option>
+            <option value="28">28</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+            <option value="34">34</option>
+            <option value="36">36</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+        </select>
+        <button aria-label="Add Kotty Regular Fit Women White Cargo to cart" onclick="addToCart('Kotty Regular Fit Women White Cargo', 899, 'bot5.jpg', 'size-select-5')">Add to Cart</button>
+    </div>
+    <div class="product-card" role="article">
+        <img src="bot7.jpg" alt="White cargo trousers for women">
+        <h3>Kotty Regular Fit Women White Cargo</h3>
+        <p>₹899</p>
+        <label for="size-select-5">Select Size:</label>
+        <select id="size-select-5" class="size-select">
+            <option value="">Select size</option>
+            <option value="26">26</option>
+            <option value="28">28</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+            <option value="34">34</option>
+            <option value="36">36</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+        </select>
+        <button aria-label="Add Kotty Regular Fit Women White Cargo to cart" onclick="addToCart('Kotty Regular Fit Women White Cargo', 899, 'bot5.jpg', 'size-select-5')">Add to Cart</button>
+    </div>
+    <div class="product-card" role="article">
+        <img src="bot8.jpg" alt="White cargo trousers for women">
+        <h3>Kotty Regular Fit Women White Cargo</h3>
+        <p>₹899</p>
+        <label for="size-select-5">Select Size:</label>
+        <select id="size-select-5" class="size-select">
+            <option value="">Select size</option>
+            <option value="26">26</option>
+            <option value="28">28</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+            <option value="34">34</option>
+            <option value="36">36</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+        </select>
+        <button aria-label="Add Kotty Regular Fit Women White Cargo to cart" onclick="addToCart('Kotty Regular Fit Women White Cargo', 899, 'bot5.jpg', 'size-select-5')">Add to Cart</button>
+    </div>
+    <div class="product-card" role="article">
+        <img src="bot9.jpg" alt="White cargo trousers for women">
+        <h3>Kotty Regular Fit Women White Cargo</h3>
+        <p>₹899</p>
+        <label for="size-select-5">Select Size:</label>
+        <select id="size-select-5" class="size-select">
+            <option value="">Select size</option>
+            <option value="26">26</option>
+            <option value="28">28</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+            <option value="34">34</option>
+            <option value="36">36</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+        </select>
+        <button aria-label="Add Kotty Regular Fit Women White Cargo to cart" onclick="addToCart('Kotty Regular Fit Women White Cargo', 899, 'bot5.jpg', 'size-select-5')">Add to Cart</button>
+    </div>
+    <div class="product-card" role="article">
+        <img src="bot10.jpg" alt="White cargo trousers for women">
+        <h3>Kotty Regular Fit Women White Cargo</h3>
+        <p>₹899</p>
+        <label for="size-select-5">Select Size:</label>
+        <select id="size-select-5" class="size-select">
+            <option value="">Select size</option>
+            <option value="26">26</option>
+            <option value="28">28</option>
+            <option value="30">30</option>
+            <option value="32">32</option>
+            <option value="34">34</option>
+            <option value="36">36</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+        </select>
+        <button aria-label="Add Kotty Regular Fit Women White Cargo to cart" onclick="addToCart('Kotty Regular Fit Women White Cargo', 899, 'bot5.jpg', 'size-select-5')">Add to Cart</button>
+    </div>
+    
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice, productImage, sizeSelectId) {
+        const size = document.getElementById(sizeSelectId).value;
+        const product = { name: productName, price: productPrice, image: productImage, size: size, quantity: 1 };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} (Size: ${size}) has been added to your cart!`);
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+    
+    updateCartCount();
+</script>
+
+</body>
+</html>
