@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Swap Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-section, .items-section {
+            margin: 20px 0;
+        }
+
+        .form-section input, .form-section textarea, .form-section button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        .item-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            background: #fafafa;
+        }
+
+        .item-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .swap-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .swap-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Style Swap Platform</h1>
+
+        <div class="form-section">
+            <h2>List Your Item for Swap</h2>
+            <input type="text" id="item-name" placeholder="Item Name" required>
+            <textarea id="item-description" placeholder="Description" required></textarea>
+            <input type="text" id="item-condition" placeholder="Condition (e.g., Gently Used)" required>
+            <input type="number" id="item-price" placeholder="Price (INR)" step="0.01" required>
+            <input type="file" id="item-image" accept="image/*" required>
+            <button onclick="addItem()">List Item</button>
+        </div>
+
+        <div class="items-section">
+            <h2>Items Available for Swap</h2>
+            <div id="items-list"></div>
+        </div>
+    </div>
+
+    <script>
+        const itemsList = [];
+
+        function addItem() {
+            const itemName = document.getElementById("item-name").value;
+            const itemDescription = document.getElementById("item-description").value;
+            const itemCondition = document.getElementById("item-condition").value;
+            const itemPrice = document.getElementById("item-price").value;
+            const itemImageInput = document.getElementById("item-image");
+            const itemImage = itemImageInput.files[0];
+
+            if (itemName && itemDescription && itemCondition && itemPrice && itemImage) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newItem = {
+                        name: itemName,
+                        description: itemDescription,
+                        condition: itemCondition,
+                        price: itemPrice,
+                        image: e.target.result // Base64 string of the image
+                    };
+                    itemsList.push(newItem);
+                    document.getElementById("item-name").value = '';
+                    document.getElementById("item-description").value = '';
+                    document.getElementById("item-condition").value = '';
+                    document.getElementById("item-price").value = '';
+                    itemImageInput.value = ''; // Reset file input
+                    displayItems();
+                };
+                reader.readAsDataURL(itemImage); // Convert image file to base64
+            }
+        }
+
+        function displayItems() {
+            const itemsListDiv = document.getElementById("items-list");
+            itemsListDiv.innerHTML = ''; // Clear previous items
+
+            itemsList.forEach((item, index) => {
+                itemsListDiv.innerHTML += `
+                    <div class="item-card">
+                        <img class="item-image" src="${item.image}" alt="${item.name}">
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <p><strong>Condition:</strong> ${item.condition}</p>
+                        <p><strong>Price:</strong> ₹${item.price}</p>
+                        <button class="swap-button" onclick="swapItem(${index})">Express Interest in Swap</button>
+                    </div>
+                `;
+            });
+        }
+
+        function swapItem(index) {
+            alert(`You expressed interest in swapping: ${itemsList[index].name}`);
+        }
+    </script>
+</body>
+</html>

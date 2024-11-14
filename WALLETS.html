@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Her Closet Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Her Closet Co.</h1>
+    <a href="cart.html" class="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="container">
+
+    <div class="product-card">
+        <img src="wl1.jpg" alt="Product 1">
+        <h3>SAMTROH Women Two Fold Wallet</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('SAMTROH Women Two Fold Wallet', 499, 'path_to_image1.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="wl2.jpg" alt="Product 2">
+        <h3>Alexvyan Women RFID Two Fold Wallet</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('Alexvyan Women RFID Two Fold Wallet', 599, 'path_to_image2.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="wl3.jpg" alt="Product 3">
+        <h3>YOUSTA Women Printed Zip-Around Wallet For Women</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('YOUSTA Women Printed Zip-Around Wallet For Women', 699, 'path_to_image3.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="wl4.jpg" alt="Product 4">
+        <h3>Caprese Women Casual White Artificial Leather Wallet</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('Caprese Women Casual White Artificial Leather Wallet', 799, 'path_to_image4.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="wl5.jpg" alt="Product 5">
+        <h3>Zouk Women Orange Jute, Artificial Leather Wallet
+        </h3>
+        <p>₹899</p>
+        <button onclick="addToCart('Zouk Women Orange Jute, Artificial Leather Wallet', 899, 'path_to_image5.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="wl6.jpg" alt="Product 6">
+        <h3>ENOKI Women Mauve Three Fold Wallet</h3>
+        <p>₹399</p>
+        <button onclick="addToCart('ENOKI Women Mauve Three Fold Wallet', 399, 'path_to_image6.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="wl7.jpg" alt="Product 7">
+        <h3>Caprese Pink Solid Tri-Fold Wallet for Women</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('Caprese Pink Solid Tri-Fold Wallet for Women', 499, 'path_to_image7.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="wl8.jpg" alt="Product 8">
+        <h3>GINGER Women Printed Zip-Around Wallet</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('GINGER Women Printed Zip-Around Wallet', 599, 'path_to_image8.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="wl9.jpg" alt="Product 9">
+        <h3>Zouk - WavBeach Classic Zipper Wallet - female</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('Zouk - WavBeach Classic Zipper Wallet - female', 699, 'path_to_image9.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="wl10.jpg" alt="Product 10">
+        <h3>Alexvyan Women Rfid Two Fold Wallet</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('Alexvyan Women Rfid Two Fold Wallet', 799, 'path_to_image10.jpg')">Add to Cart</button>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Her Closet Co. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, productPrice, productImage) {
+        const product = { name: productName, price: productPrice, image: productImage, quantity: 1 };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`${productName} has been added to your cart!`);
+    }
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+
+    updateCartCount();
+</script>
+
+</body>
+</html>
